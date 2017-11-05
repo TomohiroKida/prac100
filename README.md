@@ -1,3 +1,6 @@
+# 参考
+http://www.cl.ecei.tohoku.ac.jp/nlp100/
+
 - [ ] 1: Warming Up
 	- [x] 1-0
     - [ ] 1-1
