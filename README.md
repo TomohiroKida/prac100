@@ -1,4 +1,4 @@
-# 参考
+# Reference
 http://www.cl.ecei.tohoku.ac.jp/nlp100/
 
 - [ ] 1: Warming Up
