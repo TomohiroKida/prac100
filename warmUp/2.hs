@@ -1,12 +1,19 @@
--- 円周率
--- "Now I need a drink, alcoholic of course, after the heavy lectures
--- involving quantum mechanics."を単語分解し、文字数をリスト化
+-- 「パトカー」+
+-- 「タクシー」の文字を先頭から交互に連結して文字列「パタトクカシーー」を得よ
 
-import Data.List
 
-alp :: String -> String
-alp = filter (`elem` ['A'..'z'] ++ [' ']) 
+str1 :: String
+str1 = "fuckyou"
+
+str2 :: String
+str2 = "lambda"
+
+connectDouble :: String -> String -> String
+connectDouble [] _ = []
+connectDouble _ [] = []
+connectDouble str1 str2 = head str1 : head str2 : connectDouble (tail str1) (tail str2)
 
 main = do
-        let str = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.";
-        print . map length $ words $ alp str    
+        print str1
+        print str2
+        print $ connectDouble str1 str2
