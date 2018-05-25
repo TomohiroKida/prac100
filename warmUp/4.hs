@@ -7,10 +7,18 @@ import Data.List
 getAlp :: String -> String
 getAlp = filter (`elem` ['A'..'z'] ++ [' '])
 
-getElements :: [Bool] -> [String] -> [String]
-getElements bx sx = sx
+-- true : 1word
+-- false: 2word
+getElements :: String -> Bool -> String
+getElements (w:ws) f
+    | f         = w:[]
+    | otherwise = w:head ws:[]
+
+getL :: String -> String
+getL (s:ss) = s
 
 main = do
-        let str = "Hi He Lied Beacuse Boron Could Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
-        let ary = [1, 5, 6, 7, 8, 9, 15, 16, 19]
-        print $ getElements [elem x ary|x<-[1..20]] (words $ getAlp str) 
+    let str = "Hi He Lied Because Boron Could Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+    let ary = [1, 5, 6, 7, 8, 9, 15, 16, 19]
+    let far = [elem x ary|x<-[1..20]]
+    print [getElements ws f|ws<-words $ getAlp str, f<-far]
