@@ -14,11 +14,10 @@ getElements (w:ws) f
     | f         = w:[]
     | otherwise = w:head ws:[]
 
-getL :: String -> String
-getL (s:ss) = s
-
+str = "Hi He Lied Because Boron Could Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+ary = [1, 5, 6, 7, 8, 9, 15, 16, 19]
 main = do
-    let str = "Hi He Lied Because Boron Could Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
-    let ary = [1, 5, 6, 7, 8, 9, 15, 16, 19]
-    let far = [elem x ary|x<-[1..20]]
-    print [getElements ws f|ws<-words $ getAlp str, f<-far]
+    let elem_bool = [(x-1, elem x ary)|x<-[1..19]]
+    let ws = words $ getAlp str
+    print [getElements (ws!!(fst eb)) (snd eb) | eb<-elem_bool]
+
